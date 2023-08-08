@@ -345,6 +345,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/Low Poly Guns/Scripts/GunsMenu.cs"
+"Assets/Low Poly Guns/Scripts/GunView.cs"
 "Assets/Scripts/Item/Bullet.cs"
 "Assets/Scripts/Item/Default_Removed_item.cs"
 "Assets/Scripts/Monster/Default_Enemy.cs"
@@ -354,8 +356,12 @@
 "Assets/Scripts/Player_S/Default_Movement.cs"
 "Assets/Scripts/Player_S/Default_Shooter.cs"
 "Assets/Scripts/Player_S/IShooting.cs"
+"Assets/Scripts/Player_S/PlayerManager.cs"
 "Assets/Scripts/Player_S/Player_Script.cs"
+"Assets/Scripts/Scene/GameManager.cs"
+"Assets/Scripts/Scene/SceneManager.cs"
 "Assets/Scripts/Stage/Rain_Maker.cs"
+"Assets/Sound/SoundManager.cs"
 -langversion:9.0
 
 /deterministic

@@ -7,6 +7,13 @@ public class Default_Removed_item : MonoBehaviour
     public static int count = 0;
     // Start is called before the first frame update
 
+    public enum UseableType
+    {
+        Player,
+        Enemy,
+        Nothing
+    }
+
     private void Awake()
     {
         ++count;

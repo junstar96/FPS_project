@@ -34,7 +34,12 @@ public class Player_Script : Default_Movement
         GameObject bullet = Instantiate(bulletFactory);
         bullet.transform.position = transform.position;
         bullet.GetComponent<IShooting>().GetVector(transform.forward);
+        bullet.GetComponent<Bullet>().GetUseableType("Player");
         bullet.GetComponent<IShooting>().Shooting();
+        
+       
+
+        bullet.GetComponent<Bullet>().useabletype = Default_Removed_item.UseableType.Player;
     }
 
     public void Damaged(int decreaseHp)
@@ -48,15 +53,17 @@ public class Player_Script : Default_Movement
     {
         if(Input.GetMouseButtonDown(0))
         {
-            //Shooting();
-            Ray ray = new Ray(transform.position, transform.forward);
-            RaycastHit hitinfo = new RaycastHit();
-            if(Physics.Raycast(ray, out hitinfo))
-            {
-                Debug.Log("Collision object : " + hitinfo.collider.name);
-                Debug.Log("Collision Pos : " + hitinfo.point);
+            Shooting();
+
+
+            //Ray ray = new Ray(transform.position, transform.forward);
+            //RaycastHit hitinfo = new RaycastHit();
+            //if(Physics.Raycast(ray, out hitinfo))
+            //{
+            //    Debug.Log("Collision object : " + hitinfo.collider.name);
+            //    Debug.Log("Collision Pos : " + hitinfo.point);
                 
-            }
+            //}
         }
 
         //이동
@@ -70,11 +77,11 @@ public class Player_Script : Default_Movement
         transform.Translate(movement* speed * Time.deltaTime);
 
         //회전
-        //float mouseX = Input.GetAxis("Mouse X");
-        //float mouseY = Input.GetAxis("Mouse Y");
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = 0;//Input.GetAxis("Mouse Y");
 
-        //Vector3 dir = new Vector3(-mouseY, mouseX, 0);
+        Vector3 dir = new Vector3(-mouseY, mouseX, 0);
 
-        //transform.eulerAngles += dir * 90.0f * Time.deltaTime;
+        transform.eulerAngles += dir * 90.0f * Time.deltaTime;
     }
 }
