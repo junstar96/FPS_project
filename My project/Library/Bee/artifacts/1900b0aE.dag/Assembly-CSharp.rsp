@@ -353,6 +353,7 @@
 "Assets/Scripts/Monster/Enemy_Movable.cs"
 "Assets/Scripts/Monster/Enemy_Stand.cs"
 "Assets/Scripts/Monster/IEnemy.cs"
+"Assets/Scripts/Player_S/Camera_Shake.cs"
 "Assets/Scripts/Player_S/Default_Movement.cs"
 "Assets/Scripts/Player_S/Default_Shooter.cs"
 "Assets/Scripts/Player_S/IShooting.cs"
@@ -361,6 +362,9 @@
 "Assets/Scripts/Scene/GameManager.cs"
 "Assets/Scripts/Scene/SceneManager.cs"
 "Assets/Scripts/Stage/Rain_Maker.cs"
+"Assets/Scripts/UI/Billboard.cs"
+"Assets/Scripts/UI/EnemyHpSliderList.cs"
+"Assets/Scripts/UI/Inventory.cs"
 "Assets/Sound/SoundManager.cs"
 -langversion:9.0
 

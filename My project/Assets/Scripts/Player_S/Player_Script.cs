@@ -1,42 +1,84 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Jobs;
+using UnityEngine.UI;
 
 public class Player_Script : Default_Movement
 {
-    public Player_Script pInstance;
+    private Player_Script pInstance;
 
+    //애니메이션 및 총 관련 스크립트
+    public Animator animator;
+    public Transform hand;
+    public GameObject gunObject;
+    public GameObject handgun;
+
+
+    //hp관련 값들
     public int hp;
+    public int maxHp;
+    public Slider hpSlider;
 
 
     public GameObject bulletFactory;
-    public GameObject firePosition;
 
     public GameObject player_camera;
 
     public float sensitive_rotate =  30f;
 
-    public float speed = 100;
+    public float speed = 15.0f;
     // Start is called before the first frame update
 
     private void Awake()
     {
         hp = 100;
+        maxHp = 100;
         pInstance = this;
     }
+
+    public Player_Script PInstance
+    {
+        get
+        {
+            return pInstance;
+        }
+    }
+
+
     void Start()
     {
         
     }
 
+    public void Idle()
+    {
+
+    }
+
+    
+
     public void Shooting()
     {
-        GameObject bullet = Instantiate(bulletFactory);
-        bullet.transform.position = transform.position;
+        Ray ray = new Ray(player_camera.transform.position, player_camera.transform.forward);
+
+        RaycastHit hitinfo = new RaycastHit();
+
+        if(Physics.Raycast(ray, out hitinfo))
+        {
+
+        }
+
+
+        animator.SetTrigger("Shooting");
+
+        GameObject bullet = Instantiate(bulletFactory, handgun.transform.position, transform.rotation);
         bullet.GetComponent<IShooting>().GetVector(transform.forward);
         bullet.GetComponent<Bullet>().GetUseableType("Player");
         bullet.GetComponent<IShooting>().Shooting();
-        
+  
+        player_camera.GetComponent<Camera_Shake>().ShakeCoroutine(0.1f);
        
 
         bullet.GetComponent<Bullet>().useabletype = Default_Removed_item.UseableType.Player;
@@ -48,9 +90,34 @@ public class Player_Script : Default_Movement
         Debug.Log("HP : " + hp);
     }
 
+    public void DrawGun()
+    {
+        handgun =  Instantiate(gunObject, hand);
+        handgun.transform.localPosition = new Vector3(-0.0165999997f, 0.209299996f, 0.0744000003f);
+        handgun.transform.localRotation = new Quaternion(-0.409801573f, 0.391794413f, 0.532781601f, 0.628254354f);
+        handgun.transform.localScale = new Vector3(0.140660003f, 0.140660003f, 0.140660003f);
+        
+
+    }
+
+
+    private void FixedUpdate()
+    {
+        //hp체크용
+        //hpSlider.value = (float)hp / (float)maxHp;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("Speed", speed);
+       
+
+        if(Input.GetMouseButtonDown(1))
+        {
+            DrawGun();
+        }
+
         if(Input.GetMouseButtonDown(0))
         {
             Shooting();
@@ -66,10 +133,21 @@ public class Player_Script : Default_Movement
             //}
         }
 
+        
+
         //이동
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
+        if(horizontal != 0 || vertical != 0)
+        {
+            animator.SetFloat("Speed", speed);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0f);
+        }
+        
  
 
         Vector3 movement = Vector3.right * horizontal + Vector3.forward * vertical;
@@ -77,11 +155,13 @@ public class Player_Script : Default_Movement
         transform.Translate(movement* speed * Time.deltaTime);
 
         //회전
-        float mouseX = Input.GetAxis("Mouse X");
+        float mouseX = Input.GetAxis("Mouse X") * 10f;
         float mouseY = 0;//Input.GetAxis("Mouse Y");
 
         Vector3 dir = new Vector3(-mouseY, mouseX, 0);
 
         transform.eulerAngles += dir * 90.0f * Time.deltaTime;
+
+       
     }
 }

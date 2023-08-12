@@ -11,5 +11,6 @@ public interface IEnemy
     public void StateDamaged();
     public void StateReturn();
     public void StateDie();
+ 
 
 }

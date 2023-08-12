@@ -11,6 +11,8 @@ public class Bullet : Default_Removed_item, IShooting
     public float Life_time;
     private float speed = 30.0f;
 
+    private Rigidbody rb;
+
     public UseableType useabletype;
 
     public GameObject particleObject;
@@ -25,11 +27,14 @@ public class Bullet : Default_Removed_item, IShooting
         bulletCount++;
         isExplode = false;
         useabletype = UseableType.Nothing;
+
+        rb = GetComponent<Rigidbody>();
         //Debug.Log("bulletCount : " + bulletCount);
     }
 
     public void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("collisioncheck : " + collision.gameObject.name);
         if(collision != null)
         {
             switch(useabletype)
@@ -44,6 +49,9 @@ public class Bullet : Default_Removed_item, IShooting
                         isExplode = true;
                         GameObject pObject = Instantiate(particleObject, transform.parent);
                         pObject.transform.position = transform.position;
+                        GetComponent<MeshRenderer>().enabled = false;
+                        
+                      
                         pObject.GetComponent<ParticleSystem>().Play();
                         Destroy(pObject, 2.0f);
                         bulletCount--;
@@ -60,6 +68,8 @@ public class Bullet : Default_Removed_item, IShooting
            
         }
     }
+
+    
 
     public void GetUseableType(string type)
     {
@@ -86,7 +96,7 @@ public class Bullet : Default_Removed_item, IShooting
 
     public void Shooting()
     {
-        Debug.Log("useabletype : " + useabletype);
+        //Debug.Log("useabletype : " + useabletype);
        switch(useabletype)
         {
             case UseableType.Nothing:
@@ -111,7 +121,7 @@ public class Bullet : Default_Removed_item, IShooting
                 break;
             case UseableType.Player:
                 
-                Debug.Log("Destroy Bullet");
+                //Debug.Log("Destroy Bullet");
                 break;
             case UseableType.Enemy:
                 break;
@@ -125,7 +135,8 @@ public class Bullet : Default_Removed_item, IShooting
     {
         while (Life_time > 0.0f && !isExplode)
         {
-            transform.Translate(forward_vector * speed * Time.deltaTime);
+            rb.AddForce(forward_vector * speed, ForceMode.Impulse);
+            //transform.Translate(forward_vector * speed * Time.deltaTime);
             Life_time -= Time.deltaTime;
             yield return null;
         }

@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 //스탠드 형은 이동은 추가하지 말고 대신 회전 기능과 공격 기능을 최대한 중점적으로 잡아야 한다.
 //스탠드형도 바닥 설치와 천장 설치 중 어느 쪽을 골라야 하는지를 고민해야 한다. 
@@ -13,6 +14,8 @@ public class Enemy_Movable : Default_Enemy, IEnemy
     public GameObject EnemyModeling;
     public Animator animator;
 
+
+    NavMeshAgent navMeshAgent;
 
     EnemyState e_state;
     [HideInInspector]
@@ -28,6 +31,8 @@ public class Enemy_Movable : Default_Enemy, IEnemy
     public bool delaycheck = false;
     public float anim_time = 0.0f;
 
+    //public Slider hpbar;
+
     CharacterController cc;
 
     Transform player;
@@ -35,8 +40,11 @@ public class Enemy_Movable : Default_Enemy, IEnemy
     void Start()
     {
         hp = 100;
+        maxHp = 100;
         animator = EnemyModeling.GetComponent<Animator>();
         e_state = EnemyState.Idle;
+
+        navMeshAgent = GetComponent<NavMeshAgent>();
 
         player = GameObject.Find("Player").transform;
        
@@ -48,23 +56,32 @@ public class Enemy_Movable : Default_Enemy, IEnemy
 
     public void StateIdle()
     {
+        navMeshAgent.isStopped = true;
+        navMeshAgent.ResetPath();
         if (Vector3.Distance(transform.position, player.position) < findDistance)
         {
             animator.SetBool("Found_Player", true);
-            anim_time += Time.deltaTime;
-            if(anim_time >= animator.GetCurrentAnimatorClipInfo(0).Length)
+
+
+
+            //여긴 나중에 다시 손 보고 지금은 navmesh 체크
+           if(!delaycheck && e_state == EnemyState.Idle)
             {
-                delaycheck = !delaycheck;
-                e_state = EnemyState.Move;
-                anim_time = 0f;
+                delaycheck = true;
+                if(gameObject.tag == "Zombie")
+                {
+                    StartCoroutine(CheckDelay(2.23f, EnemyState.Move));
+                }
+                
             }
 
 
-            
+            //anim_time += Time.deltaTime;
 
 
-            Debug.Log("Player Found");
-           
+            //Debug.Log("Player Found");
+
+
         }
         else
         {
@@ -73,6 +90,7 @@ public class Enemy_Movable : Default_Enemy, IEnemy
             Debug.Log("Player Missing");
         }
     }
+
     public void StateRun()
     {
         StateMove();
@@ -81,16 +99,25 @@ public class Enemy_Movable : Default_Enemy, IEnemy
     {
         
         transform.LookAt(player);
+
         speed = Mathf.Clamp(speed + Time.deltaTime, 0.0f, 10.0f);
         animator.SetFloat("Speed", speed);
+
         if (Vector3.Distance(transform.position, player.position) > attackDistance)
         {
-           if(Vector3.Distance(transform.position, player.position) < findDistance)
+            if (Vector3.Distance(transform.position, player.position) < findDistance)
             {
+                navMeshAgent.isStopped = false;
+
+                navMeshAgent.stoppingDistance = attackDistance;
+                navMeshAgent.speed = speed;
+                navMeshAgent.destination = player.position;
+
+
                 Vector3 dir = (player.position - transform.position).normalized;
                 transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
                 currentTime += Time.deltaTime;
-                
+
                 e_state = EnemyState.Move;
             }
             else
@@ -104,6 +131,8 @@ public class Enemy_Movable : Default_Enemy, IEnemy
             e_state = EnemyState.Attack;
             Debug.Log("Player attack form");
         }
+
+
         //타겟을 찾는 함수
     }
     public void StateAttack()
@@ -112,19 +141,29 @@ public class Enemy_Movable : Default_Enemy, IEnemy
         {
             anim_time = 0.0f;
         }
-        anim_time = Time.deltaTime;
+        anim_time += Time.deltaTime;
 
+        currentTime += Time.deltaTime;
 
         if (Vector3.Distance(transform.position, player.position) < attackDistance)
         {
-            currentTime += Time.deltaTime;
-
-            
             if(currentTime > attackDelay)
             {
+                navMeshAgent.isStopped = true;
+                navMeshAgent.ResetPath();
                 currentTime = 0f;
                 player.GetComponent<Player_Script>().Damaged(attackPower);
                 animator.SetTrigger("Attack");
+                if(!delaycheck)
+                {
+                    if(gameObject.tag == "Zombie")
+                    {
+                        StartCoroutine(CheckDelay(5.25f, EnemyState.Move));
+                    }
+                    
+                    delaycheck = true;
+                }
+
             }
         }
         else
@@ -136,15 +175,39 @@ public class Enemy_Movable : Default_Enemy, IEnemy
             }
             else
             {
-                if(anim_time > animator.GetCurrentAnimatorClipInfo(0).Length)
+                if(!delaycheck)
                 {
-                    e_state = EnemyState.Move;
-                    currentTime = 0f;
+                    if (currentTime > attackDelay)
+                    {
+                        e_state = EnemyState.Move;
+                        Debug.Log("AttackToMove");
+                        currentTime = 0f;
+                    }
                 }
+                
+               
             }
         }
         //공격하는 함수
     }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision == null)
+        {
+            Debug.Log("not collision");
+        }
+        else
+        {
+            if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                Application.Quit();
+            }
+        }
+    }
+
+
 
     public void StateReturn()
     {
@@ -152,20 +215,41 @@ public class Enemy_Movable : Default_Enemy, IEnemy
     }
     public void StateDamaged()
     {
+        navMeshAgent.isStopped = true;
+        navMeshAgent.ResetPath();
+        animator.SetInteger("HitMotionNum", Random.Range(1, 2));
+        animator.SetTrigger("HitTrigger");
+    
 
+        if (!delaycheck)
+        {
+            if(gameObject.name == "Enemy_Zombie")
+            {
+                StartCoroutine(CheckDelay(2f, EnemyState.Idle));
+            }
+        }
+        
         //데미지를 받았을 때 어떻게 할 것인지 함수
     }
     public void StateDie()
     {
+        
         //죽을 때 함수
         Destroy(gameObject, 3f);
 
     }
 
+    private void FixedUpdate()
+    {
+        //hpbar.value = (float)hp / (float)maxHp;
+    }
+
     // Update is called once per frame
     void Update()
     {
-       
+        
+
+
         Debug.Log("state :" + e_state);
         switch (e_state)
         {
@@ -193,17 +277,27 @@ public class Enemy_Movable : Default_Enemy, IEnemy
 
         }
 
-        
-        
 
+
+        animator.SetFloat("Distance", Vector3.Distance(transform.position, player.position));
         animator.SetInteger("HP", hp);
-       
 
     }
 
-    IEnumerator CheckDelay(float delay)
+    IEnumerator CheckDelay(float delay, EnemyState state)
     {
         yield return new WaitForSeconds(delay);
-        delaycheck = true;
+        delaycheck = false;
+        e_state = state;
+    }
+
+    IEnumerator PlayDeltaTimer()
+    {
+        while(anim_time < animator.GetCurrentAnimatorClipInfo(0).Length)
+        {
+            anim_time += Time.deltaTime;
+            yield return null;
+        }
+        delaycheck = false;
     }
 }
