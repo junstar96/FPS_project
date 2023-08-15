@@ -15,7 +15,7 @@ C:/Users/user/Desktop/GRA_fps_project/FPS_Project/FPS_project/My project
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-60138
+63991
 Successfully changed project path to: C:/Users/user/Desktop/GRA_fps_project/FPS_Project/FPS_project/My project
 C:/Users/user/Desktop/GRA_fps_project/FPS_Project/FPS_project/My project
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,11 +47,11 @@ C:/Users/user/Desktop/GRA_fps_project/FPS_Project/FPS_project/My project
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [26792] Host "[IP] 192.168.219.133 [Port] 0 [Flags] 2 [Guid] 1883716942 [EditorId] 1883716942 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-DRRKA46) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [22888] Host "[IP] 192.168.219.105 [Port] 0 [Flags] 2 [Guid] 1125714922 [EditorId] 1125714922 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-DRRKA46) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [26792] Host "[IP] 192.168.219.133 [Port] 0 [Flags] 2 [Guid] 1883716942 [EditorId] 1883716942 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-DRRKA46) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [22888] Host "[IP] 192.168.219.105 [Port] 0 [Flags] 2 [Guid] 1125714922 [EditorId] 1125714922 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-DRRKA46) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 87.83 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 75.47 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.20f1 (577897200b8b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity 2021.3.20f1/Editor/Data/Resources/UnitySubsystems
@@ -67,166 +67,45 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity 2021.3.20f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity 2021.3.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity 2021.3.20f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56024
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56640
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity 2021.3.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.009763 seconds.
+Registered in 0.008648 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 67.37 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 74.94 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.569 seconds
+- Completed reload, in  0.589 seconds
 Domain Reload Profiling:
-	ReloadAssembly (569ms)
-		BeginReloadAssembly (102ms)
+	ReloadAssembly (589ms)
+		BeginReloadAssembly (101ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (367ms)
-			LoadAssemblies (98ms)
+		EndReloadAssembly (386ms)
+			LoadAssemblies (95ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (82ms)
+			SetupTypeCache (88ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (23ms)
-			SetupLoadedEditorAssemblies (213ms)
+			SetupLoadedEditorAssemblies (225ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (8ms)
+				InitializePlatformSupportModulesInManaged (9ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (67ms)
+				RefreshPlugins (75ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (97ms)
-				ProcessInitializeOnLoadMethodAttributes (39ms)
+				ProcessInitializeOnLoadAttributes (100ms)
+				ProcessInitializeOnLoadMethodAttributes (40ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.014378 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\user\Desktop\GRA_fps_project\FPS_Project\FPS_project\My project\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\user\Desktop\GRA_fps_project\FPS_Project\FPS_project\My project\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.63 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.974 seconds
-Domain Reload Profiling:
-	ReloadAssembly (975ms)
-		BeginReloadAssembly (141ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (18ms)
-		EndReloadAssembly (724ms)
-			LoadAssemblies (146ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (207ms)
-			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (38ms)
-			SetupLoadedEditorAssemblies (323ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (87ms)
-				ProcessInitializeOnLoadAttributes (187ms)
-				ProcessInitializeOnLoadMethodAttributes (22ms)
-				AfterProcessingInitializeOnLoad (20ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3068 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 24 unused Assets / (113.4 KB). Loaded Objects now: 3531.
-Memory consumption went from 109.0 MB to 108.9 MB.
-Total: 3.301600 ms (FindLiveObjects: 0.271900 ms CreateObjectMapping: 0.260700 ms MarkObjects: 2.660500 ms  DeleteObjects: 0.107500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 255338.995841 seconds.
-  path: ProjectSettings/TagManager.asset
-  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bdb23334ee27114340b7bf378ca4be2') in 0.042658 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007381 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\user\Desktop\GRA_fps_project\FPS_Project\FPS_project\My project\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\user\Desktop\GRA_fps_project\FPS_Project\FPS_project\My project\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.65 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.889 seconds
-Domain Reload Profiling:
-	ReloadAssembly (889ms)
-		BeginReloadAssembly (181ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (32ms)
-		EndReloadAssembly (599ms)
-			LoadAssemblies (130ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (186ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (30ms)
-			SetupLoadedEditorAssemblies (264ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (7ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (70ms)
-				ProcessInitializeOnLoadAttributes (155ms)
-				ProcessInitializeOnLoadMethodAttributes (15ms)
-				AfterProcessingInitializeOnLoad (16ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 2.35 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3063 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 18 unused Assets / (79.9 KB). Loaded Objects now: 3535.
-Memory consumption went from 108.9 MB to 108.8 MB.
-Total: 2.873800 ms (FindLiveObjects: 0.203000 ms CreateObjectMapping: 0.172200 ms MarkObjects: 2.413900 ms  DeleteObjects: 0.083700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006922 seconds.
+Registered in 0.006947 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\user\Desktop\GRA_fps_project\FPS_Project\FPS_project\My project\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\user\Desktop\GRA_fps_project\FPS_Project\FPS_project\My project\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -234,40 +113,43 @@ Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.71 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.906 seconds
+- Completed reload, in  0.976 seconds
 Domain Reload Profiling:
-	ReloadAssembly (907ms)
-		BeginReloadAssembly (171ms)
+	ReloadAssembly (977ms)
+		BeginReloadAssembly (142ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (32ms)
-		EndReloadAssembly (636ms)
-			LoadAssemblies (123ms)
+			CreateAndSetChildDomain (19ms)
+		EndReloadAssembly (725ms)
+			LoadAssemblies (130ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (209ms)
+			SetupTypeCache (211ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (35ms)
-			SetupLoadedEditorAssemblies (267ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (336ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
+				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (73ms)
-				ProcessInitializeOnLoadAttributes (151ms)
-				ProcessInitializeOnLoadMethodAttributes (14ms)
-				AfterProcessingInitializeOnLoad (20ms)
+				BeforeProcessingInitializeOnLoad (97ms)
+				ProcessInitializeOnLoadAttributes (194ms)
+				ProcessInitializeOnLoadMethodAttributes (17ms)
+				AfterProcessingInitializeOnLoad (21ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 2.05 ms, found 3 plugins.
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.72 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3063 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 17 unused Assets / (79.8 KB). Loaded Objects now: 3538.
-Memory consumption went from 108.9 MB to 108.8 MB.
-Total: 3.252900 ms (FindLiveObjects: 0.327100 ms CreateObjectMapping: 0.191100 ms MarkObjects: 2.562800 ms  DeleteObjects: 0.171100 ms)
+Unloading 3227 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (1.3 MB). Loaded Objects now: 3695.
+Memory consumption went from 211.8 MB to 210.4 MB.
+Total: 2.975100 ms (FindLiveObjects: 0.260100 ms CreateObjectMapping: 0.088300 ms MarkObjects: 2.317600 ms  DeleteObjects: 0.307800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -281,121 +163,65 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 323.816854 seconds.
-  path: Assets/Prefebs/Character/Ybot/X Bot.fbx
-  artifactKey: Guid(6fcf409bfda09664dab5b7846bc187e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefebs/Character/Ybot/X Bot.fbx using Guid(6fcf409bfda09664dab5b7846bc187e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ddf2cf246a8a48c4a328cc3fff00033') in 0.215511 seconds 
+  Time since last request: 504111.381485 seconds.
+  path: Assets/Scenes/Stage1 1.unity
+  artifactKey: Guid(bb5bc72dd5b015c43b9debb4710358de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Stage1 1.unity using Guid(bb5bc72dd5b015c43b9debb4710358de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '939107d1f8d233f072ed2060262bf28e') in 0.007947 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 2138.642350 seconds.
-  path: Assets/Animation/IdleAnimation/Crouching_Left.fbx
-  artifactKey: Guid(184ee594cbff7c646af54aa60e7e6399) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/IdleAnimation/Crouching_Left.fbx using Guid(184ee594cbff7c646af54aa60e7e6399) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f17557efd03b6a21acc24c43aeb097c1') in 0.006062 seconds 
+  Time since last request: 42.076726 seconds.
+  path: Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources
+  artifactKey: Guid(dc4bb0fafa82d884481178ef46e29fdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources using Guid(dc4bb0fafa82d884481178ef46e29fdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '521e50cc8c993b1f219d8ee467fedc65') in 0.002478 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Animation/IdleAnimation/Salute.fbx
-  artifactKey: Guid(76eee19c8f619a34bb9133fdab0af9f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/IdleAnimation/Salute.fbx using Guid(76eee19c8f619a34bb9133fdab0af9f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12b036a2886e2d274ada2875d13ecc00') in 0.005437 seconds 
+  Time since last request: 1.223156 seconds.
+  path: Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Collectables
+  artifactKey: Guid(b4a09e698a79b9c45b6c702ab6b8d11c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Collectables using Guid(b4a09e698a79b9c45b6c702ab6b8d11c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f67efa225302e41ec283bba61f195a5c') in 0.002167 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Animation/IdleAnimation/Shotgun.fbx
-  artifactKey: Guid(78d60fc5db0df624797802ee281b0968) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/IdleAnimation/Shotgun.fbx using Guid(78d60fc5db0df624797802ee281b0968) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b13417505cb45d88378048e6348b5178') in 0.004765 seconds 
+  Time since last request: 0.027343 seconds.
+  path: Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Collectables/PTK_Collectable_1.fbx
+  artifactKey: Guid(34eac2aca8510464aab52cc659f8cd64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Collectables/PTK_Collectable_1.fbx using Guid(34eac2aca8510464aab52cc659f8cd64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '451da8676ba74ec92d5cf0a349612216') in 0.164898 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 14.690618 seconds.
-  path: Assets/Animation/IdleAnimation/Walking.fbx
-  artifactKey: Guid(5593d879eafc2ac4f96437c73aa719cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/IdleAnimation/Walking.fbx using Guid(5593d879eafc2ac4f96437c73aa719cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b50cd2c2935d548e8a01594895f94eb6') in 0.005729 seconds 
+  Time since last request: 8.740465 seconds.
+  path: Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Doors
+  artifactKey: Guid(ec16b445a5e57ff45ba11554acadde7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Doors using Guid(ec16b445a5e57ff45ba11554acadde7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8d0eefbbb6a54a09e3187d5f9965a1c') in 0.002121 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 23.132762 seconds.
-  path: Assets/Animation/IdleAnimation/Shotgun.fbx
-  artifactKey: Guid(78d60fc5db0df624797802ee281b0968) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/IdleAnimation/Shotgun.fbx using Guid(78d60fc5db0df624797802ee281b0968) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1543a4328ce0f454390d21152cbea628') in 0.005940 seconds 
+  Time since last request: 0.091358 seconds.
+  path: Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Doors/PTK_Door_Medium.fbx
+  artifactKey: Guid(d6b4f636666d42c4fbb8b66461b80bef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Doors/PTK_Door_Medium.fbx using Guid(d6b4f636666d42c4fbb8b66461b80bef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b2f0c3d6eccc08c50071093a54d0c5a') in 0.025046 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 45.908704 seconds.
-  path: Assets/Animation/IdleAnimation/Salute.fbx
-  artifactKey: Guid(76eee19c8f619a34bb9133fdab0af9f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/IdleAnimation/Salute.fbx using Guid(76eee19c8f619a34bb9133fdab0af9f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '702189fded0ceacb3b29dbe17ecdbc76') in 0.005251 seconds 
+  Time since last request: 0.000019 seconds.
+  path: Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Doors/PTK_RevolvingDoor_Medium.fbx
+  artifactKey: Guid(cdfe83834f0b48747965e435edc35b81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Doors/PTK_RevolvingDoor_Medium.fbx using Guid(cdfe83834f0b48747965e435edc35b81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c509d97916c91d4d8f6f70e3c337baa3') in 0.028824 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 4.510138 seconds.
-  path: Assets/Animation/IdleAnimation/Idle.fbx
-  artifactKey: Guid(b9b0cc8f2f73ae84995c2fc81b9ad961) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/IdleAnimation/Idle.fbx using Guid(b9b0cc8f2f73ae84995c2fc81b9ad961) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eba568e337a0980ce86078a739ea2287') in 0.004831 seconds 
+  Time since last request: 0.000020 seconds.
+  path: Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Doors/PTK_SlidingDoor_Medium.fbx
+  artifactKey: Guid(6e68c6e5d7bfee343872a63435900cfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Doors/PTK_SlidingDoor_Medium.fbx using Guid(6e68c6e5d7bfee343872a63435900cfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7114e9fa5d58d1dc35a2f199eff0471f') in 0.027512 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.056469 seconds.
-  path: Assets/Animation/IdleAnimation/Hit To Body.fbx
-  artifactKey: Guid(63c259abc724afe449acde2d3cbf53f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/IdleAnimation/Hit To Body.fbx using Guid(63c259abc724afe449acde2d3cbf53f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c3a1ae51d5ce7e52cd2a07c56b530e9') in 0.005990 seconds 
+  Time since last request: 0.000031 seconds.
+  path: Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Doors/PTK_Tunnel_Large.fbx
+  artifactKey: Guid(2113dea347164f748b9c48514e713cee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Doors/PTK_Tunnel_Large.fbx using Guid(2113dea347164f748b9c48514e713cee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2607d715330e9e2b0ea3146238b8b67b') in 0.020941 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 8.591782 seconds.
-  path: Assets/Animation/IdleAnimation/Head Hit.fbx
-  artifactKey: Guid(aef8b53e3b0435c4db69d04d11c4d7c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/IdleAnimation/Head Hit.fbx using Guid(aef8b53e3b0435c4db69d04d11c4d7c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e7db41e80bf30c91fd527c360b19ba1') in 0.005359 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 13.833924 seconds.
-  path: Assets/Animation/IdleAnimation/FightingIdle.fbx
-  artifactKey: Guid(bd809d998a3ee824483223379b4c8f28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/IdleAnimation/FightingIdle.fbx using Guid(bd809d998a3ee824483223379b4c8f28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75e68b2599c8e42e52966fba916b0913') in 0.005243 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 10.486876 seconds.
-  path: Assets/Animation/IdleAnimation/FastRun.fbx
-  artifactKey: Guid(587e7dda192b43d46974956d8667f058) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/IdleAnimation/FastRun.fbx using Guid(587e7dda192b43d46974956d8667f058) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34082957ccc227910cbf65d47f7ac2eb') in 0.004460 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 11.612132 seconds.
-  path: Assets/Animation/IdleAnimation/Crouching_Right.fbx
-  artifactKey: Guid(801c2ac5c8e813647a5efeb38145e994) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/IdleAnimation/Crouching_Right.fbx using Guid(801c2ac5c8e813647a5efeb38145e994) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '280a87ca6f8da617f615833247d16a9a') in 0.004990 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 10.815154 seconds.
-  path: Assets/Animation/IdleAnimation/Crouching_Left.fbx
-  artifactKey: Guid(184ee594cbff7c646af54aa60e7e6399) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/IdleAnimation/Crouching_Left.fbx using Guid(184ee594cbff7c646af54aa60e7e6399) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66daf08367dfc75f4c0a72f669ae0e11') in 0.004731 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 32.191927 seconds.
-  path: Assets/Animation/PlayerAnimation/Shooting.fbx
-  artifactKey: Guid(d7bf4b2dc115a5f4b93a2e24095c47a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/PlayerAnimation/Shooting.fbx using Guid(d7bf4b2dc115a5f4b93a2e24095c47a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b214ebf93d11651ef35157c0e8186b79') in 0.004738 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 19.779308 seconds.
-  path: Assets/Animation/PlayerAnimation/Crouched Walking.fbx
-  artifactKey: Guid(57c150c5323343b4284a425e077c6f67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/PlayerAnimation/Crouched Walking.fbx using Guid(57c150c5323343b4284a425e077c6f67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc3691722983fe292004bce757ae7ebf') in 0.005229 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 37.898272 seconds.
-  path: Assets/Animation/EnemyAnimation/ZombieAnimation/ZombieDeath.fbx
-  artifactKey: Guid(ffc3bf9eb2b455947a80dd5c727487b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/EnemyAnimation/ZombieAnimation/ZombieDeath.fbx using Guid(ffc3bf9eb2b455947a80dd5c727487b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83da2906e634acaa754e6c6a4c3981ef') in 0.005551 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 9.096733 seconds.
-  path: Assets/Animation/EnemyAnimation/ZombieAnimation/ZombiePunching.fbx
-  artifactKey: Guid(713c778fdb768f242a6dd25fddd9a6f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/EnemyAnimation/ZombieAnimation/ZombiePunching.fbx using Guid(713c778fdb768f242a6dd25fddd9a6f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b2bb488424ed6d83efe9a48928c197a') in 0.004642 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 18.284188 seconds.
-  path: Assets/Animation/EnemyAnimation/ZombieAnimation/ZombieRunning.fbx
-  artifactKey: Guid(e70ac8666be215747bd44990198851f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/EnemyAnimation/ZombieAnimation/ZombieRunning.fbx using Guid(e70ac8666be215747bd44990198851f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f899d2711103c19495bc4b2c2189ac08') in 0.005228 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 75.546413 seconds.
-  path: Assets/Animation/EnemyAnimation/ZombieAnimation/ZombieScream.fbx
-  artifactKey: Guid(0fced7ffcca2f464fb313c56ddb9ff7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/EnemyAnimation/ZombieAnimation/ZombieScream.fbx using Guid(0fced7ffcca2f464fb313c56ddb9ff7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa2241f1f53138fdbeae578da93936e4') in 0.005679 seconds 
+  Time since last request: 0.000042 seconds.
+  path: Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Doors/PTK_Tunnel_Small.fbx
+  artifactKey: Guid(27981a572ea15ec40b2732ef1bcf729d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DigitalKonstrukt/Prototyping_Pack_Free/Resources/Meshes/Doors/PTK_Tunnel_Small.fbx using Guid(27981a572ea15ec40b2732ef1bcf729d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afd1438921a7530b504de528a8375162') in 0.013025 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

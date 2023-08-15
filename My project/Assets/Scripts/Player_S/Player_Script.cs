@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Jobs;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ using UnityEngine.UI;
 public class Player_Script : Default_Movement
 {
     private Player_Script pInstance;
+    private Rigidbody rb;
 
     //애니메이션 및 총 관련 스크립트
     public Animator animator;
@@ -21,6 +23,7 @@ public class Player_Script : Default_Movement
     public int maxHp;
     public Slider hpSlider;
 
+    
 
     public GameObject bulletFactory;
 
@@ -29,10 +32,12 @@ public class Player_Script : Default_Movement
     public float sensitive_rotate =  30f;
 
     public float speed = 15.0f;
+    public float jumpForce = 10f;
     // Start is called before the first frame update
 
     private void Awake()
     {
+        rb = GetComponent<Rigidbody>();
         hp = 100;
         maxHp = 100;
         pInstance = this;
@@ -57,7 +62,23 @@ public class Player_Script : Default_Movement
 
     }
 
-    
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("SolidObject"))
+        {
+           
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Floor"))
+        {
+            transform.up = collision.gameObject.transform.up;
+        }
+    }
 
     public void Shooting()
     {
@@ -73,7 +94,8 @@ public class Player_Script : Default_Movement
 
         animator.SetTrigger("Shooting");
 
-        GameObject bullet = Instantiate(bulletFactory, handgun.transform.position, transform.rotation);
+        GameObject bullet = Instantiate(bulletFactory, handgun.transform.Find("GunFirePos").position, transform.rotation);
+        
         bullet.GetComponent<IShooting>().GetVector(transform.forward);
         bullet.GetComponent<Bullet>().GetUseableType("Player");
         bullet.GetComponent<IShooting>().Shooting();
@@ -88,6 +110,11 @@ public class Player_Script : Default_Movement
     {
         hp -= decreaseHp;
         Debug.Log("HP : " + hp);
+    }
+
+    public void Jump()
+    {
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
     public void DrawGun()
@@ -147,10 +174,13 @@ public class Player_Script : Default_Movement
         {
             animator.SetFloat("Speed", 0f);
         }
+
+
         
  
 
         Vector3 movement = Vector3.right * horizontal + Vector3.forward * vertical;
+        //rb.AddForce(movement * speed);
 
         transform.Translate(movement* speed * Time.deltaTime);
 
@@ -160,8 +190,8 @@ public class Player_Script : Default_Movement
 
         Vector3 dir = new Vector3(-mouseY, mouseX, 0);
 
-        transform.eulerAngles += dir * 90.0f * Time.deltaTime;
-
+        //transform.eulerAngles += dir * 90.0f * Time.deltaTime;
+        rb.rotation = rb.rotation * Quaternion.Euler(dir);
        
     }
 }

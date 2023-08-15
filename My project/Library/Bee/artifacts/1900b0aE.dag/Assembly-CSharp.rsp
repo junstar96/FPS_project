@@ -114,6 +114,7 @@
 -define:ENABLE_TIMELINE
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
+-define:UNITY_POST_PROCESSING_STACK_V2
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"C:/Program Files/Unity 2021.3.20f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
@@ -325,6 +326,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.EditorCoroutines.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Postprocessing.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Postprocessing.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Rider.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.ref.dll"
@@ -349,6 +352,7 @@
 "Assets/Low Poly Guns/Scripts/GunView.cs"
 "Assets/Scripts/Item/Bullet.cs"
 "Assets/Scripts/Item/Default_Removed_item.cs"
+"Assets/Scripts/Item/GunFire.cs"
 "Assets/Scripts/Monster/Default_Enemy.cs"
 "Assets/Scripts/Monster/Enemy_Movable.cs"
 "Assets/Scripts/Monster/Enemy_Stand.cs"
@@ -366,6 +370,13 @@
 "Assets/Scripts/UI/EnemyHpSliderList.cs"
 "Assets/Scripts/UI/Inventory.cs"
 "Assets/Sound/SoundManager.cs"
+"Assets/UnityTechnologies/ParticlePack/EffectExamples/Misc Effects/Scripts/SpawnEffect.cs"
+"Assets/UnityTechnologies/ParticlePack/Shared/Ramps/Runtime/RampAsset.cs"
+"Assets/UnityTechnologies/ParticlePack/Shared/Scripts/AdjustTimeScale.cs"
+"Assets/UnityTechnologies/ParticlePack/Shared/Scripts/ProximityActivate.cs"
+"Assets/UnityTechnologies/ParticlePack/Shared/Scripts/SimpleCameraController.cs"
+"Assets/UnityTechnologies/ParticlePack/Shared/Scripts/SimpleCharacterMotor.cs"
+"Assets/UnityTechnologies/ParticlePack/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
 
 /deterministic
