@@ -31,7 +31,8 @@ public class Player_Script : Default_Movement
 
     public float sensitive_rotate =  30f;
 
-    public float speed = 15.0f;
+    public float speed_x = 0.0f;
+    public float speed_y = 0.0f;
     public float jumpForce = 10f;
     // Start is called before the first frame update
 
@@ -88,7 +89,10 @@ public class Player_Script : Default_Movement
 
         if(Physics.Raycast(ray, out hitinfo))
         {
-
+            if(hitinfo.collider.gameObject.layer == LayerMask.NameToLayer("Building"))
+            {
+                Debug.Log("Collision_Building");
+            }
         }
 
 
@@ -99,6 +103,7 @@ public class Player_Script : Default_Movement
         bullet.GetComponent<IShooting>().GetVector(transform.forward);
         bullet.GetComponent<Bullet>().GetUseableType("Player");
         bullet.GetComponent<IShooting>().Shooting();
+        handgun.GetComponent<IShooting>().Shooting();
   
         player_camera.GetComponent<Camera_Shake>().ShakeCoroutine(0.1f);
        
@@ -132,12 +137,17 @@ public class Player_Script : Default_Movement
     {
         //hp체크용
         //hpSlider.value = (float)hp / (float)maxHp;
+
+        
+
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Speed", speed);
+        
        
 
         if(Input.GetMouseButtonDown(1))
@@ -160,29 +170,40 @@ public class Player_Script : Default_Movement
             //}
         }
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(Vector3.up * 10f, ForceMode.Impulse);
+            animator.SetTrigger("Jump");
+            animator.SetBool("Grounded", false);
+        }
         
 
         //이동
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        if(horizontal != 0 || vertical != 0)
+        Debug.Log("horizontal" + horizontal);
+
+       
+        if(vertical == 0)
         {
-            animator.SetFloat("Speed", speed);
+            animator.SetBool("Vertical_zero", true);
         }
         else
         {
-            animator.SetFloat("Speed", 0f);
+            animator.SetBool("Vertical_zero", false);
         }
+       
+        speed_x = Mathf.Clamp(speed_x + vertical, -15f, 15f);
+        speed_y = Mathf.Clamp(speed_y + horizontal , -15f, 15f);
+        animator.SetFloat("Speed_X", speed_x);
 
 
-        
- 
+        Vector3 movement = new Vector3(player_camera.transform.forward.x * speed_x, player_camera.transform.forward.y, player_camera.transform.forward.z * speed_y);
 
-        Vector3 movement = Vector3.right * horizontal + Vector3.forward * vertical;
         //rb.AddForce(movement * speed);
 
-        transform.Translate(movement* speed * Time.deltaTime);
+        rb.MovePosition(transform.position + movement *Time.deltaTime);
 
         //회전
         float mouseX = Input.GetAxis("Mouse X") * 10f;

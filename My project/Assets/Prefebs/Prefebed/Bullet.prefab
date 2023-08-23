@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Life_time: 0
   useabletype: 0
-  particleObject: {fileID: 5278104362838848944, guid: 17a6d83bfacece345a9e70a70126f862, type: 3}
+  particleObject: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
   forward_vector: {x: 0, y: 0, z: 0}
 --- !u!33 &2957734142478104085
 MeshFilter:

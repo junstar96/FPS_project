@@ -14,9 +14,10 @@ public class GunFire : MonoBehaviour, IShooting
 
     public void Shooting()
     {
-        GameObject gunfire = Instantiate(particleObject, FirePos.transform.position, FirePos.transform.rotation);
-        gunfire.GetComponent<ParticleSystem>().Play();
-        Destroy(gunfire, 0.1f);
+        //GameObject gunfire = Instantiate(particleObject, FirePos.transform.position, FirePos.transform.rotation);
+        //gunfire.transform.localScale = gunfire.transform.localScale * 0.01f;
+        //gunfire.GetComponent<ParticleSystem>().Play();
+        //Destroy(gunfire, 0.1f);
 
        
     }
