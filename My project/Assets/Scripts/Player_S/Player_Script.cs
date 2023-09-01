@@ -18,10 +18,7 @@ public class Player_Script : Default_Movement
     public GameObject handgun;
 
 
-    //hp관련 값들
-    public int hp;
-    public int maxHp;
-    public Slider hpSlider;
+
 
     
 
@@ -36,11 +33,11 @@ public class Player_Script : Default_Movement
     public float jumpForce = 10f;
     // Start is called before the first frame update
 
+    private bool moveKeyInput = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        hp = 100;
-        maxHp = 100;
         pInstance = this;
     }
 
@@ -60,7 +57,7 @@ public class Player_Script : Default_Movement
 
     public void Idle()
     {
-
+        Debug.Log("idlecheck");
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -95,6 +92,7 @@ public class Player_Script : Default_Movement
             }
         }
 
+        
 
         animator.SetTrigger("Shooting");
 
@@ -113,13 +111,16 @@ public class Player_Script : Default_Movement
 
     public void Damaged(int decreaseHp)
     {
-        hp -= decreaseHp;
-        Debug.Log("HP : " + hp);
+
     }
 
     public void Jump()
     {
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        //rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * 10f, ForceMode.Impulse);
+        animator.SetTrigger("Jump");
+        animator.SetBool("Grounded", false);
+        StartCoroutine(JumpCheck());
     }
 
     public void DrawGun()
@@ -147,16 +148,46 @@ public class Player_Script : Default_Movement
     // Update is called once per frame
     void Update()
     {
-        
-       
+        Debug.Log(speed_x + " check " + speed_y);
 
-        if(Input.GetMouseButtonDown(1))
+        if(!moveKeyInput)
         {
-            DrawGun();
+            if (speed_x > 0)
+            {
+                speed_x -= Time.deltaTime;
+            }
+            else if (speed_x < 0)
+            {
+                speed_x += Time.deltaTime;
+            }
+            else if (speed_x < 0.1f && speed_x > -0.1f)
+            {
+                speed_x = 0f;
+            }
+
+            if (speed_y > 0)
+            {
+                speed_y -= Time.deltaTime;
+            }
+            else if (speed_y < 0)
+            {
+                speed_y += Time.deltaTime;
+            }
+            else if (speed_y < 0.1f && speed_y > -0.1f)
+            {
+                speed_y = 0f;
+            }
         }
 
-        if(Input.GetMouseButtonDown(0))
+
+
+        if (Input.GetMouseButtonDown(0))
         {
+            if(handgun == null)
+            {
+                DrawGun();
+            }
+            
             Shooting();
 
 
@@ -172,9 +203,7 @@ public class Player_Script : Default_Movement
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(Vector3.up * 10f, ForceMode.Impulse);
-            animator.SetTrigger("Jump");
-            animator.SetBool("Grounded", false);
+            Jump();
         }
         
 
@@ -182,28 +211,48 @@ public class Player_Script : Default_Movement
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        Debug.Log("horizontal" + horizontal);
 
-       
-        if(vertical == 0)
-        {
-            animator.SetBool("Vertical_zero", true);
-        }
-        else
-        {
-            animator.SetBool("Vertical_zero", false);
-        }
-       
-        speed_x = Mathf.Clamp(speed_x + vertical, -15f, 15f);
-        speed_y = Mathf.Clamp(speed_y + horizontal , -15f, 15f);
+        //if(Input.GetKey(KeyCode.W))
+        //{
+        //    moveKeyInput = true;
+        //    speed_y = Mathf.Clamp(speed_y - Time.deltaTime, -15f, 15f);
+        //}
+
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    moveKeyInput = true;
+        //    speed_x = Mathf.Clamp(speed_x - Time.deltaTime, -15f, 15f);
+        //}
+
+        //if (Input.GetKey(KeyCode.S))
+        //{
+        //    moveKeyInput = true;
+        //    speed_y = Mathf.Clamp(speed_y + Time.deltaTime, -15f, 15f);
+        //}
+
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    moveKeyInput = true;
+        //    speed_x = Mathf.Clamp(speed_x + Time.deltaTime, -15f, 15f);
+        //}
+
+
+
+        speed_x = Mathf.Clamp(speed_x + vertical, -5f, 5f);
+        speed_y = Mathf.Clamp(speed_y + horizontal, -5f, 5f);
         animator.SetFloat("Speed_X", speed_x);
+        animator.SetFloat("Speed_Y", speed_y);
 
+       
 
         Vector3 movement = new Vector3(player_camera.transform.forward.x * speed_x, player_camera.transform.forward.y, player_camera.transform.forward.z * speed_y);
+        ////Vector3 movement = new Vector3(player_camera.transform.forward.x * speed_x, 0, player_camera.transform.forward.z * speed_y).normalized;
 
-        //rb.AddForce(movement * speed);
+        rb.AddForce(movement);
 
-        rb.MovePosition(transform.position + movement *Time.deltaTime);
+        //transform.Translate(movement * 10);
+
+        //rb.MovePosition(transform.position + movement);
 
         //회전
         float mouseX = Input.GetAxis("Mouse X") * 10f;
@@ -214,5 +263,48 @@ public class Player_Script : Default_Movement
         //transform.eulerAngles += dir * 90.0f * Time.deltaTime;
         rb.rotation = rb.rotation * Quaternion.Euler(dir);
        
+    }
+
+    private void JumpStay()
+    {
+        Debug.Log("checkJump");
+    }
+
+    IEnumerator JumpCheck()
+    {
+        yield return new WaitForSeconds(1.0f);
+        
+
+        while(true)
+        {
+            Ray ray = new Ray(transform.position, Vector3.down);
+
+            RaycastHit raycasthit = new RaycastHit();
+            if(Physics.Raycast(ray, out raycasthit))
+            {
+                if(raycasthit.distance < 1.0f)
+                {
+                    Debug.Log("checkHello");
+                    animator.speed = 2f;
+                    break;
+
+                }
+            }
+            yield return null;
+        }
+    }
+
+
+    IEnumerator SpeedDown()
+    {
+        while(true)
+        {
+            if(moveKeyInput)
+            {
+                break;
+            }
+            yield return null;
+        }
+        
     }
 }

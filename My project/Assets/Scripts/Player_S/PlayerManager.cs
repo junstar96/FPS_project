@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    private void JumpStay()
+    {
+        Debug.Log("CheckJump");
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {

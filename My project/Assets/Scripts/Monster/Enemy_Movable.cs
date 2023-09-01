@@ -39,8 +39,6 @@ public class Enemy_Movable : Default_Enemy, IEnemy
     // Start is called before the first frame update
     void Start()
     {
-        hp = 100;
-        maxHp = 100;
         animator = EnemyModeling.GetComponent<Animator>();
         e_state = EnemyState.Idle;
 
@@ -95,9 +93,18 @@ public class Enemy_Movable : Default_Enemy, IEnemy
     {
         StateMove();
     }
+
+    //Á»ºñ
     public void StateMove()
     {
-        
+        if(this.gameObject.tag == "Zomble")
+        {
+            transform.LookAt(player);
+            navMeshAgent.destination = player.position;
+
+        }
+
+
         transform.LookAt(player);
 
         speed = Mathf.Clamp(speed + Time.deltaTime, 0.0f, 10.0f);
@@ -280,7 +287,7 @@ public class Enemy_Movable : Default_Enemy, IEnemy
 
 
         animator.SetFloat("Distance", Vector3.Distance(transform.position, player.position));
-        animator.SetInteger("HP", hp);
+        animator.SetInteger("HP", (int)GetComponent<MonsterHp>().hp);
 
     }
 

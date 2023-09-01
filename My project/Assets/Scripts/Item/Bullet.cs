@@ -37,53 +37,53 @@ public class Bullet : Default_Removed_item, IShooting
 
     public void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("bullet collisioncheck : " + collision.gameObject.name);
-        //if(collision != null)
-        //{
-        //    switch(useabletype)
-        //    {
-        //        case UseableType.Nothing:
-        //            //여기는 나중에 처리할 용도
-        //            break;
-        //        case UseableType.Player:
-                   
-        //            if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        //            {
-        //                isExplode = true;
-        //                GameObject pObject = Instantiate(particleObject, transform.parent);
-        //                pObject.transform.position = transform.position;
-        //                GetComponent<MeshRenderer>().enabled = false;
-                        
-                      
-        //                pObject.GetComponent<ParticleSystem>().Play();
-        //                Destroy(pObject, 2.0f);
-        //                bulletCount--;
-        //                Debug.Log("Enemy_Collision");
-        //            }
-        //            else if(collision.gameObject.layer == LayerMask.NameToLayer("Building"))
-        //            {
-        //                isExplode = true;
-        //                GameObject pObject = Instantiate(particleObject, transform.parent);
-        //                pObject.transform.position = transform.position;
-        //                GetComponent<MeshRenderer>().enabled = false;
+        Debug.Log("bullet collisioncheck : " + collision.gameObject.name);
+        if (collision != null)
+        {
+            switch (useabletype)
+            {
+                case UseableType.Nothing:
+                    //여기는 나중에 처리할 용도
+                    break;
+                case UseableType.Player:
+
+                    if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                    {
+                        isExplode = true;
+                        GameObject pObject = Instantiate(particleObject, transform.parent);
+                        pObject.transform.position = transform.position;
+                        GetComponent<MeshRenderer>().enabled = false;
 
 
-        //                pObject.GetComponent<ParticleSystem>().Play();
-        //                Destroy(pObject, 2.0f);
-        //                bulletCount--;
-        //                Debug.Log("Enemy_Collision");
-        //            }
-                    
-        //            break;
-        //        case UseableType.Enemy:
-        //            if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
-        //            {
-        //                isExplode = true;
-        //            }
-        //            break;
-        //    }
-           
-        //}
+                        pObject.GetComponent<ParticleSystem>().Play();
+                        Destroy(pObject, 2.0f);
+                        bulletCount--;
+                        Debug.Log("Enemy_Collision");
+                    }
+                    else if (collision.gameObject.layer == LayerMask.NameToLayer("Building"))
+                    {
+                        isExplode = true;
+                        GameObject pObject = Instantiate(particleObject, transform.parent);
+                        pObject.transform.position = transform.position;
+                        GetComponent<MeshRenderer>().enabled = false;
+
+
+                        pObject.GetComponent<ParticleSystem>().Play();
+                        Destroy(pObject, 2.0f);
+                        bulletCount--;
+                        Debug.Log("Enemy_Collision");
+                    }
+
+                    break;
+                case UseableType.Enemy:
+                    if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+                    {
+                        isExplode = true;
+                    }
+                    break;
+            }
+
+        }
     }
 
     
@@ -172,7 +172,7 @@ public class Bullet : Default_Removed_item, IShooting
                 }
                 else
                 {
-                    if(hitinfo.collider.tag == "Building" || hitinfo.collider.tag == "Enemy")
+                    if(hitinfo.collider.tag == "Building" || hitinfo.collider.tag == "Enemy" || hitinfo.collider.tag == "Untagged")
                     {
                         isExplode = true;
                         GameObject pObject = Instantiate(particleObject, transform.parent);

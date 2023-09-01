@@ -9,20 +9,29 @@ public class Enemy_Stand : Default_Enemy, IEnemy
 {
     EnemyState e_state;
 
-    public float findDistance = 8f;
+    public float findDistance = 100f;
     public float attackDistance = 2f;
 
-    CharacterController cc;
+    public GameObject model;
+    public Animator animator;
+
+    public MonsterEventCheck monsterEventCheck;
 
     Transform player;
     // Start is called before the first frame update
     void Start()
     {
+        if(gameObject.name == "Golem")
+        {
+            attackDistance = 20.0f;
+        }
+
         e_state = EnemyState.Idle;
 
         player = GameObject.Find("Player").transform;
 
-        cc = GetComponent<CharacterController>();
+        animator = model.GetComponent<Animator>();
+        monsterEventCheck = model.GetComponent<MonsterEventCheck>();
     }
 
     public void StateIdle()
@@ -39,19 +48,24 @@ public class Enemy_Stand : Default_Enemy, IEnemy
     }
     public void StateMove()
     {
-        if(Vector3.Distance(transform.position, player.position) > attackDistance)
+       
+        if (Vector3.Distance(transform.position, player.position) > attackDistance)
         {
-            Vector3 dir = (player.position - transform.position).normalized;
-            cc.Move(dir * Time.deltaTime);
+            transform.LookAt(player.position);
         }
         else
         {
+            Debug.Log("Attack");
             e_state = EnemyState.Attack;
         }
         //타겟을 찾는 함수
     }
     public void StateAttack()
     {
+        animator.SetTrigger("Attack");
+        animator.SetInteger("AttackNum", Random.Range(1, 4));
+        monsterEventCheck.anim_play = true;
+        StartCoroutine(DelayAnim());
         //공격하는 함수
     }
 
@@ -73,8 +87,7 @@ public class Enemy_Stand : Default_Enemy, IEnemy
     // Update is called once per frame
     void Update()
     {
-
-
+      
 
         switch(e_state)
         {
@@ -96,7 +109,16 @@ public class Enemy_Stand : Default_Enemy, IEnemy
             case EnemyState.Die:
                 StateDie();
                 break;
-                
+            case EnemyState.Attack:
+                StateAttack();
+                break;
         }
+    }
+
+    IEnumerator DelayAnim()
+    {
+        yield return new WaitUntil(() => monsterEventCheck.anim_play == false);
+        Debug.Log("Finish_check");
+        e_state = EnemyState.Idle;
     }
 }

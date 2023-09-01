@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1629809424288627125}
+  - component: {fileID: 6708829187015448193}
   m_Layer: 10
   m_Name: Enemy_Zombie
   m_TagString: Untagged
@@ -32,6 +33,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6708829187015448193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7025630657648034714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc313f7af71b1743bb595096fb55035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  attackPower: 0
+  EnemyModeling: {fileID: 7331159664346144166}
+  animator: {fileID: 0}
+  speed: 10
+  findDistance: 80
+  attackDistance: 2
+  attackDelay: 2
+  attackSpeed: 1
+  delaycheck: 0
+  anim_time: 0
 --- !u!1001 &7601208718688723191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -624,6 +648,11 @@ CapsuleCollider:
   m_Height: 0.5268699
   m_Direction: 1
   m_Center: {x: -0.000000023636263, y: 0.23656511, z: 0.000000023350607}
+--- !u!1 &7331159664346144166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d10e23ab9e55701468f32d5eaa1de9e3, type: 3}
+  m_PrefabInstance: {fileID: 7601208718688723191}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7592081746600062478 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9171100556185337, guid: d10e23ab9e55701468f32d5eaa1de9e3, type: 3}

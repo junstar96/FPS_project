@@ -6,9 +6,7 @@ using UnityEngine;
 
 public class Default_Enemy : MonoBehaviour
 {
-    public int hp;
-    public int maxHp;
-    public int level;
+    public int type;
     public int attackPower;
     public enum EnemyState
     {
