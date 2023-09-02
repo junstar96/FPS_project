@@ -18,8 +18,6 @@ public class Player_Script : Default_Movement
     public GameObject handgun;
 
 
-
-
     
 
     public GameObject bulletFactory;
@@ -31,6 +29,7 @@ public class Player_Script : Default_Movement
     public float speed_x = 0.0f;
     public float speed_y = 0.0f;
     public float jumpForce = 10f;
+    public bool isShooting;
     // Start is called before the first frame update
 
     private bool moveKeyInput = false;
@@ -38,6 +37,7 @@ public class Player_Script : Default_Movement
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        isShooting = false;
         pInstance = this;
     }
 
@@ -148,37 +148,8 @@ public class Player_Script : Default_Movement
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(speed_x + " check " + speed_y);
 
-        if(!moveKeyInput)
-        {
-            if (speed_x > 0)
-            {
-                speed_x -= Time.deltaTime;
-            }
-            else if (speed_x < 0)
-            {
-                speed_x += Time.deltaTime;
-            }
-            else if (speed_x < 0.1f && speed_x > -0.1f)
-            {
-                speed_x = 0f;
-            }
-
-            if (speed_y > 0)
-            {
-                speed_y -= Time.deltaTime;
-            }
-            else if (speed_y < 0)
-            {
-                speed_y += Time.deltaTime;
-            }
-            else if (speed_y < 0.1f && speed_y > -0.1f)
-            {
-                speed_y = 0f;
-            }
-        }
-
+        
 
 
         if (Input.GetMouseButtonDown(0))
@@ -189,16 +160,6 @@ public class Player_Script : Default_Movement
             }
             
             Shooting();
-
-
-            //Ray ray = new Ray(transform.position, transform.forward);
-            //RaycastHit hitinfo = new RaycastHit();
-            //if(Physics.Raycast(ray, out hitinfo))
-            //{
-            //    Debug.Log("Collision object : " + hitinfo.collider.name);
-            //    Debug.Log("Collision Pos : " + hitinfo.point);
-                
-            //}
         }
 
         if(Input.GetKeyDown(KeyCode.Space))
@@ -206,61 +167,33 @@ public class Player_Script : Default_Movement
             Jump();
         }
         
+        if(!isShooting)
+        {
+            horizontal = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
 
+
+            speed_x = vertical * 10f;
+            speed_y = horizontal * 10f;
+            animator.SetFloat("Speed_X", speed_x);
+            animator.SetFloat("Speed_Y", speed_y);
+
+
+
+            Vector3 movement = player_camera.transform.forward * speed_x + player_camera.transform.right * speed_y;
+
+            rb.velocity = movement;
+        }
         //이동
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
 
 
-        //if(Input.GetKey(KeyCode.W))
-        //{
-        //    moveKeyInput = true;
-        //    speed_y = Mathf.Clamp(speed_y - Time.deltaTime, -15f, 15f);
-        //}
-
-        //if (Input.GetKey(KeyCode.A))
-        //{
-        //    moveKeyInput = true;
-        //    speed_x = Mathf.Clamp(speed_x - Time.deltaTime, -15f, 15f);
-        //}
-
-        //if (Input.GetKey(KeyCode.S))
-        //{
-        //    moveKeyInput = true;
-        //    speed_y = Mathf.Clamp(speed_y + Time.deltaTime, -15f, 15f);
-        //}
-
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    moveKeyInput = true;
-        //    speed_x = Mathf.Clamp(speed_x + Time.deltaTime, -15f, 15f);
-        //}
-
-
-
-        speed_x = Mathf.Clamp(speed_x + vertical, -5f, 5f);
-        speed_y = Mathf.Clamp(speed_y + horizontal, -5f, 5f);
-        animator.SetFloat("Speed_X", speed_x);
-        animator.SetFloat("Speed_Y", speed_y);
-
-       
-
-        Vector3 movement = new Vector3(player_camera.transform.forward.x * speed_x, player_camera.transform.forward.y, player_camera.transform.forward.z * speed_y);
-        ////Vector3 movement = new Vector3(player_camera.transform.forward.x * speed_x, 0, player_camera.transform.forward.z * speed_y).normalized;
-
-        rb.AddForce(movement);
-
-        //transform.Translate(movement * 10);
-
-        //rb.MovePosition(transform.position + movement);
 
         //회전
         float mouseX = Input.GetAxis("Mouse X") * 10f;
-        float mouseY = 0;//Input.GetAxis("Mouse Y");
+        float mouseY = 0;
 
         Vector3 dir = new Vector3(-mouseY, mouseX, 0);
 
-        //transform.eulerAngles += dir * 90.0f * Time.deltaTime;
         rb.rotation = rb.rotation * Quaternion.Euler(dir);
        
     }

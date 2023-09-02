@@ -5,13 +5,20 @@ using UnityEngine;
 public class PlayerAnimationEvent : MonoBehaviour
 {
     private Player_Script ps;
-
+    
     
 
     private void JumpStay()
     {
         ps.animator.speed = 0.001f;
     }
+
+    private void ShotStart()
+    {
+
+    }
+
+
 
     // Start is called before the first frame update
     void Start()

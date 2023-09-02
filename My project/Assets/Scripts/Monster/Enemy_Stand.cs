@@ -21,10 +21,17 @@ public class Enemy_Stand : Default_Enemy, IEnemy
     // Start is called before the first frame update
     void Start()
     {
-        if(gameObject.name == "Golem")
+        if(gameObject.tag == "Golem")
         {
-            attackDistance = 20.0f;
+            findDistance = 100.0f;
+            attackDistance = 50.0f;
         }
+        else if(gameObject.tag == "Turret")
+        {
+            findDistance = 20.0f;
+            attackDistance = 10f;
+        }
+
 
         e_state = EnemyState.Idle;
 
@@ -55,6 +62,9 @@ public class Enemy_Stand : Default_Enemy, IEnemy
         }
         else
         {
+            
+
+
             Debug.Log("Attack");
             e_state = EnemyState.Attack;
         }
@@ -119,6 +129,8 @@ public class Enemy_Stand : Default_Enemy, IEnemy
     {
         yield return new WaitUntil(() => monsterEventCheck.anim_play == false);
         Debug.Log("Finish_check");
+
+        yield return new WaitForSeconds(3f);
         e_state = EnemyState.Idle;
     }
 }

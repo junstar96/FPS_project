@@ -9,6 +9,7 @@ TagManager:
   - Robot
   - Enemy
   - Spawn
+  - Golem
   layers:
   - Default
   - TransparentFX

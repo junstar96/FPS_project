@@ -9,6 +9,7 @@ public class MonsterEventCheck : MonoBehaviour
     {
         anim_play = false;
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +17,5 @@ public class MonsterEventCheck : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
