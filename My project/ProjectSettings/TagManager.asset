@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - Spawn
   - Golem
+  - Start
+  - End
   layers:
   - Default
   - TransparentFX

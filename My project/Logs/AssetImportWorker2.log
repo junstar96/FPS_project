@@ -1,0 +1,223 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.20f1 (577897200b8b) revision 5732503'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Professional' Language: 'ko' Physical Memory: 15628 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity 2021.3.20f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+C:/Users/user/Desktop/GRA_fps_project/FPS_Project/FPS_project/My project
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+57799
+Successfully changed project path to: C:/Users/user/Desktop/GRA_fps_project/FPS_Project/FPS_project/My project
+C:/Users/user/Desktop/GRA_fps_project/FPS_Project/FPS_project/My project
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [13684] Host "[IP] 192.168.219.177 [Port] 0 [Flags] 2 [Guid] 2579545956 [EditorId] 2579545956 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-DRRKA46) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [13684] Host "[IP] 192.168.219.177 [Port] 0 [Flags] 2 [Guid] 2579545956 [EditorId] 2579545956 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-DRRKA46) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 100.66 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.20f1 (577897200b8b)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity 2021.3.20f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/user/Desktop/GRA_fps_project/FPS_Project/FPS_project/My project/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 Laptop GPU (ID=0x2520)
+    Vendor:   NVIDIA
+    VRAM:     6023 MB
+    Driver:   31.0.15.1640
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity 2021.3.20f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity 2021.3.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity 2021.3.20f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56056
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity 2021.3.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.010743 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 80.48 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.806 seconds
+Domain Reload Profiling:
+	ReloadAssembly (807ms)
+		BeginReloadAssembly (185ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (474ms)
+			LoadAssemblies (176ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (138ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (24ms)
+			SetupLoadedEditorAssemblies (248ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (81ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (116ms)
+				ProcessInitializeOnLoadMethodAttributes (41ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.008033 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\user\Desktop\GRA_fps_project\FPS_Project\FPS_project\My project\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\user\Desktop\GRA_fps_project\FPS_Project\FPS_project\My project\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.77 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.985 seconds
+Domain Reload Profiling:
+	ReloadAssembly (986ms)
+		BeginReloadAssembly (152ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (19ms)
+		EndReloadAssembly (727ms)
+			LoadAssemblies (130ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (236ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (40ms)
+			SetupLoadedEditorAssemblies (323ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (87ms)
+				ProcessInitializeOnLoadAttributes (195ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (18ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.81 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3237 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (1.3 MB). Loaded Objects now: 3709.
+Memory consumption went from 214.4 MB to 213.0 MB.
+Total: 3.731000 ms (FindLiveObjects: 0.337600 ms CreateObjectMapping: 0.291100 ms MarkObjects: 2.757300 ms  DeleteObjects: 0.344100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 47600.672117 seconds.
+  path: Assets/Animation/IdleAnimation/Standing React Death Backward.fbx
+  artifactKey: Guid(ecb56264ca872fb4bac263f575073aa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/IdleAnimation/Standing React Death Backward.fbx using Guid(ecb56264ca872fb4bac263f575073aa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'daf18ad896cc5062e79063749049cb20') in 0.076558 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Animation/IdleAnimation/Fallen Idle.fbx
+  artifactKey: Guid(6390430404d612b41b2d9b307028a0a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/IdleAnimation/Fallen Idle.fbx using Guid(6390430404d612b41b2d9b307028a0a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb801e26531ad8c944663e107899e7fe') in 0.005511 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 22.957114 seconds.
+  path: Assets/Animation/IdleAnimation/Fallen Idle.fbx
+  artifactKey: Guid(6390430404d612b41b2d9b307028a0a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/IdleAnimation/Fallen Idle.fbx using Guid(6390430404d612b41b2d9b307028a0a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fbd6a850dc1241c92cca6b6320a7d5d') in 0.004291 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.519465 seconds.
+  path: Assets/Animation/IdleAnimation/Fallen_Stay.anim
+  artifactKey: Guid(e3ad692d215c030448d3cd56bbb28f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/IdleAnimation/Fallen_Stay.anim using Guid(e3ad692d215c030448d3cd56bbb28f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19a06a7848f17b0dd36c1abe20b56635') in 0.008947 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 52.112135 seconds.
+  path: Assets/Animation/IdleAnimation/Right Strafe (1).fbx
+  artifactKey: Guid(cbfe905bc8244664f82c39dd3b03fedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/IdleAnimation/Right Strafe (1).fbx using Guid(cbfe905bc8244664f82c39dd3b03fedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e901a9c3639b691feb1602e0394729c') in 0.005384 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.031779 seconds.
+  path: Assets/Animation/IdleAnimation/Left_Fast_Run.anim
+  artifactKey: Guid(a3a7964522cc0e64794eab4fa26e442f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/IdleAnimation/Left_Fast_Run.anim using Guid(a3a7964522cc0e64794eab4fa26e442f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2abd17df4138c89f5d647609fc57652') in 0.007002 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.381559 seconds.
+  path: Assets/Animation/IdleAnimation/Right Strafe.fbx
+  artifactKey: Guid(573868496d5c17f468e3df5dd668c432) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/IdleAnimation/Right Strafe.fbx using Guid(573868496d5c17f468e3df5dd668c432) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0cb6eae4b3aa073df96b599c435c43f') in 0.005222 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.454274 seconds.
+  path: Assets/Animation/IdleAnimation/Right_Fast_Run.anim
+  artifactKey: Guid(8621ce41e895e1d478c84a196df01e86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/IdleAnimation/Right_Fast_Run.anim using Guid(8621ce41e895e1d478c84a196df01e86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07e18f6e69e76398cbd17a79b882fd85') in 0.006838 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 41.193283 seconds.
+  path: Assets/Animation/IdleAnimation/Standing React Death Backward.fbx
+  artifactKey: Guid(ecb56264ca872fb4bac263f575073aa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/IdleAnimation/Standing React Death Backward.fbx using Guid(ecb56264ca872fb4bac263f575073aa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0af910f44a4733519ed2e51b95c19ec') in 0.004692 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.308871 seconds.
+  path: Assets/Animation/IdleAnimation/DeathMoton_Backdumbling.anim
+  artifactKey: Guid(898373d09ad6a9645be776e89f59a9da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/IdleAnimation/DeathMoton_Backdumbling.anim using Guid(898373d09ad6a9645be776e89f59a9da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bc1e82d7824f8b8823649a024d60766') in 0.013443 seconds 

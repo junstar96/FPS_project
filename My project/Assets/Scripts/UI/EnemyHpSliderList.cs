@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyHpSliderList : MonoBehaviour
 {
-    public Slider[] silder;
+    
 
     // Start is called before the first frame update
     void Start()

@@ -33,9 +33,11 @@ public class Enemy_Movable : Default_Enemy, IEnemy
 
     //public Slider hpbar;
 
-    CharacterController cc;
+    public MonsterEventCheck eventcheck;
 
-    Transform player;
+
+
+    GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,10 +46,8 @@ public class Enemy_Movable : Default_Enemy, IEnemy
 
         navMeshAgent = GetComponent<NavMeshAgent>();
 
-        player = GameObject.Find("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
        
-
-        cc = GetComponent<CharacterController>();
 
         attackPower = 3;
     }
@@ -56,19 +56,18 @@ public class Enemy_Movable : Default_Enemy, IEnemy
     {
         navMeshAgent.isStopped = true;
         navMeshAgent.ResetPath();
-        if (Vector3.Distance(transform.position, player.position) < findDistance)
+        if (Vector3.Distance(transform.position, player.transform.position) < findDistance)
         {
             animator.SetBool("Found_Player", true);
 
-
+            Debug.Log("IdleCheck");
 
             //여긴 나중에 다시 손 보고 지금은 navmesh 체크
-           if(!delaycheck && e_state == EnemyState.Idle)
+           if(e_state == EnemyState.Idle)
             {
-                delaycheck = true;
-                if(gameObject.tag == "Zombie")
+                if(eventcheck.anim_play == false)
                 {
-                    StartCoroutine(CheckDelay(2.23f, EnemyState.Move));
+                    e_state = EnemyState.Move;
                 }
                 
             }
@@ -99,30 +98,31 @@ public class Enemy_Movable : Default_Enemy, IEnemy
     {
         if(this.gameObject.tag == "Zomble")
         {
-            transform.LookAt(player);
-            navMeshAgent.destination = player.position;
+            transform.LookAt(player.transform);
+            navMeshAgent.destination = player.transform.position ;
+            
 
         }
 
 
-        transform.LookAt(player);
+        transform.LookAt(player.transform);
 
         speed = Mathf.Clamp(speed + Time.deltaTime, 0.0f, 10.0f);
         animator.SetFloat("Speed", speed);
 
-        if (Vector3.Distance(transform.position, player.position) > attackDistance)
+        if (Vector3.Distance(transform.position, player.transform.position) > attackDistance)
         {
-            if (Vector3.Distance(transform.position, player.position) < findDistance)
+            if (Vector3.Distance(transform.position, player.transform.position) < findDistance)
             {
                 navMeshAgent.isStopped = false;
 
                 navMeshAgent.stoppingDistance = attackDistance;
                 navMeshAgent.speed = speed;
-                navMeshAgent.destination = player.position;
+                navMeshAgent.destination = player.transform.position;
 
 
-                Vector3 dir = (player.position - transform.position).normalized;
-                transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+                Vector3 dir = (player.transform.position - transform.position).normalized;
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
                 currentTime += Time.deltaTime;
 
                 e_state = EnemyState.Move;
@@ -152,7 +152,7 @@ public class Enemy_Movable : Default_Enemy, IEnemy
 
         currentTime += Time.deltaTime;
 
-        if (Vector3.Distance(transform.position, player.position) < attackDistance)
+        if (Vector3.Distance(transform.position, player.transform.position) < attackDistance)
         {
             if(currentTime > attackDelay)
             {
@@ -165,6 +165,7 @@ public class Enemy_Movable : Default_Enemy, IEnemy
                 {
                     if(gameObject.tag == "Zombie")
                     {
+                        
                         StartCoroutine(CheckDelay(5.25f, EnemyState.Move));
                     }
                     
@@ -175,7 +176,7 @@ public class Enemy_Movable : Default_Enemy, IEnemy
         }
         else
         {
-            if(Vector3.Distance(transform.position, player.position) > findDistance)
+            if(Vector3.Distance(transform.position, player.transform.position) > findDistance)
             {
                 animator.SetBool("Found_Player", false);
                 e_state = EnemyState.Idle;
@@ -286,15 +287,19 @@ public class Enemy_Movable : Default_Enemy, IEnemy
 
 
 
-        animator.SetFloat("Distance", Vector3.Distance(transform.position, player.position));
+        animator.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
         animator.SetInteger("HP", (int)GetComponent<MonsterHp>().hp);
 
     }
 
     IEnumerator CheckDelay(float delay, EnemyState state)
     {
+        yield return null;
+
+
+        yield return new WaitUntil(() => eventcheck.GetAnimationPlayCheck() == false);
+
         yield return new WaitForSeconds(delay);
-        delaycheck = false;
         e_state = state;
     }
 

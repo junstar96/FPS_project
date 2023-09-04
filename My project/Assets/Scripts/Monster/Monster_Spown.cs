@@ -8,38 +8,41 @@ using UnityEngine;
 public class Monster_Spown : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] monster_list;
+    private GameObject WaveZombie;
 
     public GameObject[] enemy_summoned_list;
 
     [SerializeField]
-    private Transform[] spown_list;
+    private Transform spawnPoint;
 
     [HideInInspector]
     public int spawn_num = 0;
 
-    private GameObject[] player_list;
+    private GameObject player;
 
     public float regen_time = 5.0f;
-    
-    
+
+    public Transform[] summon_point;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(player_list == null)
+        if(player == null)
         {
-            player_list = GameObject.FindGameObjectsWithTag("Player");
+            player = GameObject.FindGameObjectWithTag("Player");
         }
+
+        spawn_num = 50;
 
 
         for(int i = 0;i<spawn_num;i++)
         {
-            enemy_summoned_list[i] = Instantiate(monster_list[Random.Range(0, monster_list.Length)], spown_list[Random.Range(0, spown_list.Length)].position, Quaternion.identity);
+            enemy_summoned_list[i] =  Instantiate(WaveZombie, spawnPoint.position, Quaternion.identity);
+            enemy_summoned_list[i].GetComponent<Enemy_Movable>().findDistance = 1000.0f;
         }
 
 
-        StartCoroutine(Monster_Regen_Check());
+        //StartCoroutine(Monster_Regen_Check());
     }
 
     
@@ -61,7 +64,7 @@ public class Monster_Spown : MonoBehaviour
             {
                 if (enemy_summoned_list[i] == null)
                 {
-                    enemy_summoned_list[i] = Instantiate(monster_list[Random.Range(0, monster_list.Length)], spown_list[Random.Range(0, spown_list.Length)].position, Quaternion.identity);
+                    //enemy_summoned_list[i] = Instantiate(monster_list[Random.Range(0, monster_list.Length)], spown_list[Random.Range(0, spown_list.Length)].position, Quaternion.identity);
                 }
             }
 

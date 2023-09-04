@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1629809424288627125}
   - component: {fileID: 6708829187015448193}
+  - component: {fileID: 671663832447509830}
+  - component: {fileID: -8628441869599802295}
   m_Layer: 10
   m_Name: Enemy_Zombie
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,6 +58,43 @@ MonoBehaviour:
   attackSpeed: 1
   delaycheck: 0
   anim_time: 0
+  eventcheck: {fileID: 5999710185063667569}
+--- !u!195 &671663832447509830
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7025630657648034714}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &-8628441869599802295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7025630657648034714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f28f380152bc3441a704cb9055365a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  maxHp: 100
 --- !u!1001 &7601208718688723191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -653,6 +692,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d10e23ab9e55701468f32d5eaa1de9e3, type: 3}
   m_PrefabInstance: {fileID: 7601208718688723191}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5999710185063667569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7331159664346144166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4636463f8c5cf3f4591159d126c9d1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim_play: 0
 --- !u!1 &7592081746600062478 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9171100556185337, guid: d10e23ab9e55701468f32d5eaa1de9e3, type: 3}

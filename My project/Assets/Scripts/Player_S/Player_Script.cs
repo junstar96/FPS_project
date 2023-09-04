@@ -8,15 +8,24 @@ using UnityEngine.UI;
 
 public class Player_Script : Default_Movement
 {
-    private Player_Script pInstance;
+    [HideInInspector]
+    public static Player_Script pInstance;
     private Rigidbody rb;
+    private PlayerHp playerhp;
 
     //애니메이션 및 총 관련 스크립트
     public Animator animator;
+
     public Transform hand;
+
     public GameObject gunObject;
+
+    [HideInInspector]
     public GameObject handgun;
 
+
+    [HideInInspector]
+    public CameraManager cameraManager;
 
     
 
@@ -36,12 +45,20 @@ public class Player_Script : Default_Movement
 
     private void Awake()
     {
+        if(pInstance == null)
+        {
+            pInstance = this;
+        }
+
+
         rb = GetComponent<Rigidbody>();
+        cameraManager = GetComponent<CameraManager>();
         isShooting = false;
         pInstance = this;
+        playerhp = GetComponent<PlayerHp>();
     }
 
-    public Player_Script PInstance
+    public static Player_Script PInstance
     {
         get
         {
@@ -148,7 +165,10 @@ public class Player_Script : Default_Movement
     // Update is called once per frame
     void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            player_camera = cameraManager.CameraChange();
+        }
         
 
 
@@ -169,6 +189,16 @@ public class Player_Script : Default_Movement
         
         if(!isShooting)
         {
+            
+            //회전
+            float mouseX = Input.GetAxis("Mouse X") * 10f;
+            float mouseY = 0;
+
+            Vector3 dir = new Vector3(-mouseY, mouseX, 0);
+
+            rb.rotation = rb.rotation * Quaternion.Euler(dir);
+
+
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
 
@@ -180,7 +210,9 @@ public class Player_Script : Default_Movement
 
 
 
-            Vector3 movement = player_camera.transform.forward * speed_x + player_camera.transform.right * speed_y;
+            //Vector3 movement = player_camera.transform.forward * speed_x + player_camera.transform.right * speed_y;
+            Vector3 movement = transform.forward* speed_x + transform.right * speed_y;
+            //movement = Quaternion.Euler(dir) * movement;
 
             rb.velocity = movement;
         }
@@ -188,13 +220,7 @@ public class Player_Script : Default_Movement
 
 
 
-        //회전
-        float mouseX = Input.GetAxis("Mouse X") * 10f;
-        float mouseY = 0;
-
-        Vector3 dir = new Vector3(-mouseY, mouseX, 0);
-
-        rb.rotation = rb.rotation * Quaternion.Euler(dir);
+       
        
     }
 
@@ -225,6 +251,11 @@ public class Player_Script : Default_Movement
             }
             yield return null;
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        
     }
 
 
